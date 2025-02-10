@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín💖</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+
+<body>
+    <h1>FELIZ SAN VALENTÍN AMOR</h1>
+    <div class="container">
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">T</div>
+            <div class="back">
+                <img src="img/img1.png" alt="Imagen 1">
+                <p>Ahora que estamos juntos, te quiero decir</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">E</div>
+            <div class="back">
+                <img src="img/img2.png" alt="Imagen 2">
+                <p>Que me siento feliz a tu lado amor</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">A</div>
+            <div class="back">
+                <img src="img/img33.png" alt="Imagen 3">
+                <p>Te dedico este pequeño detalle</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">M</div>
+            <div class="back">
+                <img src="img/img44.png" alt="Imagen 4">
+                <p>Deséando besarte y abrazarte</p>
+            </div>
+        </div>
+        <div class="card" onclick="flipCard(this)">
+            <div class="front">O</div>
+            <div class="back">
+                <img src="img/img5.png" alt="Imagen 5">
+                <p>Te amo y espero verte pronto</p>
+            </div>
+        </div>
+        <!-- <div class="card" onclick="flipCard(this)">
+            <div class="front">❤</div>
+            <div class="back">
+                <img src="img/img6.png" alt="Imagen 5">
+                <p>💕🌹✨💝</p>
+            </div>
+        </div> -->
+    </div>
+    <script>
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+
+        // Corazones cayendo en forma de lluvia
+        const createHeart = () => {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>

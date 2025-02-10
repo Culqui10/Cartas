@@ -1,0 +1,114 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle, #ffcccc, #c05555);
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    color: rgb(233, 14, 14);
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 100px 0; /* Espacio arriba y abajo del título */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    width: 150px;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card .front, .card .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: transform 0.6s;
+}
+
+.card .front {
+    background: #c5bf44;
+    font-size: 2em;
+}
+
+.card .back {
+    background: white;
+    transform: rotateY(180deg);
+    flex-direction: column;
+    padding: 10px; /* Añadir padding para dar espacio alrededor de la imagen y el texto */
+    box-sizing: border-box; /* Asegurarse de que el padding no afecte el tamaño total */
+    text-align: center; /* Centrar el texto dentro de la carta */
+}
+
+.card .back img {
+    max-width: 100%;
+    max-height: 60%; /* Limitar la altura de la imagen para que no ocupe todo el espacio */
+    object-fit: cover; /* Asegurar que la imagen se ajuste sin deformarse */
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+}
+
+.card .back p {
+    margin: 0;
+    font-size: 1em; /* Ajustar el tamaño del texto */
+}
+
+.card.flipped .front {
+    transform: rotateY(180deg);
+}
+
+.card.flipped .back {
+    transform: rotateY(360deg);
+}
+
+.heart {
+    width: 20px;
+    height: 20px;
+    background: red;
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: rotate(-45deg);
+    animation: fall 5s linear infinite;
+}
+
+.heart::before, .heart::after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: 10px;
+    top: 0;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(-45deg);
+    }
+}
